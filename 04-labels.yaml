@@ -1,5 +1,18 @@
-kind: pod
-apiverson: v1
+# kind: pod
+# apiverson: v1
+# metadata:
+#   name: labels
+#   labels:
+#     project: expense
+#     module: backend
+#     environment: dev
+# spec:
+#    containers:
+#      - name: nginx
+#        image: nginx    
+
+kind: Pod
+apiVersion: v1
 metadata:
   name: labels
   labels:
@@ -7,6 +20,6 @@ metadata:
     module: backend
     environment: dev
 spec:
-   containers:
-     - name: nginx
-       image: nginx    
+  containers:
+  - name: nginx
+    image: nginx
