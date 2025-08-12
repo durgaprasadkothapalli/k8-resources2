@@ -22,4 +22,4 @@ metadata:
 spec:
   containers:
    - name: nginx
-#      image: nginx
+b    image: nginx
