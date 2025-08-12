@@ -12,14 +12,33 @@
 #     - containerPort: 80
 
 
-kind: Pod
+# kind: Pod
+# apiVersion: v1
+# metadata:
+#   name: annotations
+#   annotations:
+#     imageregistry: "https://hub.docker.com/"
+#     buildURL: "https://jenkins.joindevops.com/expense/backend/build/67"
+# spec:
+#   containers:
+#    - name: nginx
+# b    image: nginx
+
+
 apiVersion: v1
+kind: Pod
 metadata:
   name: annotations
   annotations:
-    imageregistry: "https://hub.docker.com/"
-    buildURL: "https://jenkins.joindevops.com/expense/backend/build/67"
+    name: myapp
+    project: expense
+    environment: dev
+    using: K8
+    URL: "https://hub.docker.com/_/node"
+    imageURL: "https://hub.docker.com/_/node/docker_hub.com"
+    resourceName: annotations
+    details: "we can give annotations as lenghty way of details and URLs and image URLs and anything and there is no limitations here"
 spec:
   containers:
-   - name: nginx
-b    image: nginx
+    - name: nginx
+      image: nginx
