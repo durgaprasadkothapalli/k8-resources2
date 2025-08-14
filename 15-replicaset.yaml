@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Replicaset
+metadata:
+  name: nginx
+  labels: # these are replicaset labels
+     app: nginx
+     tier: frontend
+spec: 
+  replicase: 3
+  selector:
+  # this  is pod definiton
+template:
+  metadate:
+  labels: 
+    tier: frontend
+    app: nginx
+spec:
+  containers:
+  -name: nginx
+spec:
+  containers:
+  - name: nginx
+    image: nginx            
