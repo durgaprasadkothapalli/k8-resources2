@@ -1,23 +1,51 @@
+# apiVersion: apps/v1
+# kind: ReplicaSet
+# metadata:
+#   name: nginx
+#   labels: # these are replicaset labels
+#      app: nginx
+#      tier: frontend
+# spec: 
+#   replicase: 3
+#   selector:
+#   # this  is pod definiton
+# template:
+#   metadate:
+#   labels: 
+#     tier: frontend
+#     app: nginx
+# spec:
+#   containers:
+#   -name: nginx
+# spec:
+#   containers:
+#   - name: nginx
+#     image: nginx            
+
+
 apiVersion: apps/v1
 kind: ReplicaSet
 metadata:
   name: nginx
   labels: # these are replicaset labels
-     app: nginx
-     tier: frontend
-spec: 
-  replicase: 3
-  selector:
-  # this  is pod definiton
-template:
-  metadate:
-  labels: 
-    tier: frontend
     app: nginx
+    tier: frontend
 spec:
-  containers:
-  -name: nginx
-spec:
-  containers:
-  - name: nginx
-    image: nginx            
+  # modify replicas according to your case
+  replicas: 3
+  selector:
+    # these are used to select the pod to create replicas
+    matchLabels:
+      tier: frontend
+      app: nginx
+  # this is pod definition
+  template:
+    metadata:
+      # these labels belongs to pod
+      labels:
+        tier: frontend
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
